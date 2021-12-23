@@ -1,0 +1,6 @@
+package com.example.java8features;
+@FunctionalInterface
+public interface MyFunctionalInterface {
+	
+	void getFunction();
+}

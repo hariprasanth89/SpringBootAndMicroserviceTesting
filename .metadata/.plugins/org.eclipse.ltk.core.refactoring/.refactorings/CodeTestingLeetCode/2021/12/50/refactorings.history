@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract local variable &apos;sortArray_0_1_2&apos; from expression &apos;backtoBackArrays.sortArray_0_1_2(nums)&apos;&#x0A;- Original project: &apos;CodeTestingLeetCode&apos;&#x0A;- Variable name: &apos;sortArray_0_1_2&apos;&#x0A;- Destination method: &apos;com.example.backtoback.BacktoBackArrays.main(...)&apos;&#x0A;- Variable expression: &apos;backtoBackArrays.sortArray_0_1_2(nums)&apos;&#x0A;- Replace occurrences of expression with variable" description="Extract local variable &apos;sortArray_0_1_2&apos;" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.backtoback{BacktoBackArrays.java" name="sortArray_0_1_2" replace="true" selection="667 0" stamp="1639210604047" varType="false" version="1.0"/>
+</session>

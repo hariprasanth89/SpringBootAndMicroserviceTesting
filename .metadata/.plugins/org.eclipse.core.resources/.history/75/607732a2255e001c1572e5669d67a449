@@ -1,0 +1,23 @@
+package com.example.demo;
+
+public class Java8Feature {
+	
+	FunctionalIntroByJava8 doSomeCal = () -> System.out.println("My first java featre testing");
+	
+	public void callTheFunc(FdoSomeCal) {
+		s.functionalInterface();
+	}
+
+	public static void main(String[] args) {
+		
+		Java8Feature sam = new Java8Feature();
+		sam.callTheFunc();
+		
+	}
+
+}
+
+
+interface FunctionalIntroByJava8{
+	public void functionalInterface();
+}

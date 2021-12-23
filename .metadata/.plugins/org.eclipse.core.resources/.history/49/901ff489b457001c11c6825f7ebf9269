@@ -1,0 +1,8 @@
+package com.example.java8features;
+
+public class Java8FeaturesLearning implements MyFunctionalInterface {
+	
+	
+	public static void main(String[] args) {
+	}
+}

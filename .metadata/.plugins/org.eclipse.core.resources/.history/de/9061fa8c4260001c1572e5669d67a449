@@ -1,0 +1,20 @@
+package com.example.java8features;
+
+public class Java8FeaturesLearning{
+
+	public void dosomeprocess(MyFunctionalInterface fa) {
+		fa.getFunction();
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		MyFunctionalInterface ob = () -> System.out.println("functiona interface");
+		//ob.getFunction();
+		Java8FeaturesLearning as = new Java8FeaturesLearning();
+		as.dosomeprocess(ob);
+		
+	}
+	
+	
+}

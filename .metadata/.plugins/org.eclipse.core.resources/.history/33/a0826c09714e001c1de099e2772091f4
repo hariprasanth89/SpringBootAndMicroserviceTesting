@@ -1,0 +1,21 @@
+package com.example.java8features;
+
+public class Java8FeaturesLearning {
+	
+	MyFunctionalInterface str = () ->  System.out.println("Testing");
+	
+	public static void saFunction() {
+		
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+	@FunctionalInterface
+	interface MyFunctionalInterface {
+
+		//A method with no parameter
+	    public String sayHello();
+	}
+
+}

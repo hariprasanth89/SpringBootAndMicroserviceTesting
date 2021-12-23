@@ -1,0 +1,13 @@
+package com.testing;
+
+public class SampleB extends SampleA{
+	
+	
+	public static void main(String[] args) {
+		
+		SampleA b =  new SampleB();
+		b.superclass();
+	}
+	
+
+}

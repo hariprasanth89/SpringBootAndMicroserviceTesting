@@ -1,0 +1,205 @@
+package com.example.demo;
+
+public class LeetCodeProblemSolve {
+	
+	public static int hammingDistance(int x, int y) {
+        int xor = x^y;
+        int count = 0;
+        while (xor > 0) {
+            if ((xor&1) == 1) {
+                count ++;
+            }
+            xor = xor >> 1;
+        }
+        return count;
+    }
+	public static int[] twoSum(int[] nums, int target) {
+		int[] result = new int[2];
+		for (int i = 0; i < nums.length; i++) {			 
+			for (int j = i+1; j < nums.length; j++) {
+				if(nums[i] + nums[j] == target) {
+					result[0] = i; 
+					result[1] = j;
+					return result;
+				}
+			}
+		}
+		return nums;
+    }
+	
+	 public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+		 
+	        ListNode n1 = l1;
+	        ListNode n2 = l2;
+	        ListNode fakeHead = new ListNode(-1);
+	        ListNode result = fakeHead;
+	        int toAdd = 0;
+	        while(!(n1 == null && n2 == null)){
+	            int v1 = 0;
+	            int v2 = 0;
+	            if (n1 != null){
+	                v1 = n1.val;
+	                n1 = n1.next;
+	            }
+	            if (n2 != null){
+	                v2 = n2.val;
+	                n2 = n2.next;
+	            }
+	            int tmp = v1 + v2 + toAdd;
+	            result.next = new ListNode(tmp % 10);
+	            result = result.next;
+	            toAdd = tmp / 10;
+
+	        }
+	        if (toAdd > 0){
+	            result.next = new ListNode(toAdd);
+	        }
+	        return fakeHead.next;
+	    }
+	 
+	 
+	 public static int lengthOfLongestSubstring(String s) {
+		 
+		 boolean flag[] = new boolean[256];
+		 int result = 0;
+		 int start = 0;
+		 char arr[] = s.toCharArray();
+		 if (!s.isEmpty() && s != null) {
+			 for(int i = 0; i < arr.length; i++) {
+				 char current = arr[i];
+				 if (flag[current]) {
+					 result = Math.max(result, i - start);
+					 for(int k = start; k < i; k++) {
+						 if(arr[k] == current) {
+							 start = k+1;
+							 break;
+						 }
+						 flag[arr[k]] = false;
+					 }
+				 } else {
+					 flag[current] = true;
+				 }
+			 }
+		} else {
+			System.out.println("String is emplty");
+		}
+		 result = Math.max(arr.length - start, result);
+		 return result;
+	 }
+	 
+	 
+	 // 4. Median of Two Sorted Arrays
+	 public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+	        int n = nums1.length + nums2.length;
+	        int one = findKth(nums1, 0, nums2, 0, (n + 1)/2);
+	        int two = findKth(nums1, 0, nums2, 0, (n + 2)/2);
+	        return ((double)one + (double)two )/ 2.0;
+	    }
+	    private static int findKth(int[] nums1, int s1, int[] nums2, int s2, int k) {
+	        if (s1 >= nums1.length) {
+	            return nums2[s2 + k - 1];
+	        }    
+	        if (s2 >= nums2.length) {
+	            return nums1[s1 + k - 1];
+	        }
+	        if (k == 1) {
+	            return Math.min(nums1[s1], nums2[s2]);
+	        }
+	        int m1 = s1 + k / 2 - 1;
+	        int m2 = s2 + k / 2 - 1;
+	        int mid1 = 0;
+	        int mid2 = 0;
+	        if (m1 >= nums1.length) {
+	            mid1 = Integer.MAX_VALUE;
+	        }
+	        else {
+	            mid1 = nums1[m1];
+	        }
+	        if (m2 >= nums2.length) {
+	            mid2 = Integer.MAX_VALUE;
+	        }
+	        else {
+	            mid2 = nums2[m2];
+	        }
+	        if (mid1 < mid2) {
+	            return findKth(nums1, m1 + 1, nums2, s2, k - k/2);
+	        }
+	        else {
+	            return findKth(nums1, s1, nums2, m2 + 1, k - k/2);
+	        }
+	    }
+	    
+	    //5 Longest Palindromic Substring
+	    
+	    public static String longestPalindrome(String s) {
+	        String longest = "";
+	        for (int i = 0; i < s.length(); i ++){
+	            String tmp = "";
+	            tmp = paCenterBy(s, i, i);
+	            if (tmp.length() > longest.length()){
+	                longest = tmp;
+	            }
+	            tmp = paCenterBy(s, i, i + 1);
+	            if (tmp.length() > longest.length()){
+	                longest = tmp;
+	            }
+	        }  
+	        return longest;
+	    }
+	    private static String paCenterBy(String s, int cleft, int cright){
+	        String result = "";
+	        while (cleft >=0 && cright < s.length() && s.charAt(cleft) == s.charAt(cright)){
+	            cleft --;
+	            cright ++;
+	        }
+	        return s.substring(cleft + 1, cright);
+	    }
+	    
+	    public static void printStarPattern(int n) {
+	    	
+	    	for(int i = 0; i<n; i++) {
+	    		for(int j= 0; j<i; j++) {
+	    			if(j%i ==2) {
+	    				
+	    			} else {
+	    				System.out.println("  *");
+	    			}
+	    			System.out.println();
+	    		}
+	    	}
+	    	
+	    }
+	    
+	    
+
+	public static void main(String[] args) {
+		
+		int a = 1, b=4;
+		//hammingDistance(a, b);	
+		 String s = "abcabcbb";
+		 //int lengthOfLongestSubstring = lengthOfLongestSubstring(s);
+		// System.out.println(lengthOfLongestSubstring);
+		 
+		 
+		int nums1[] = {1,3};
+		int nums2[] = {3};
+		//double findMedianSortedArrays = findMedianSortedArrays(nums1, nums2);
+		//System.out.println(findMedianSortedArrays);
+		
+		String str = "babad";
+		//String longestPalindrome = longestPalindrome(str);
+		//System.out.println(longestPalindrome);
+		
+		printStarPattern(4);                  
+		
+
+	}
+		public class ListNode {
+		     int val;
+		     ListNode next;
+		     ListNode(int x) { val = x; }
+	}
+
+}
+
+
