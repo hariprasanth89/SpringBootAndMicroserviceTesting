@@ -58,19 +58,24 @@ public class EngineerFirm {
 	public void averageSalary() {
 		printMessages(AveSalary(), "ave", "engineers");
 	}
+	
+	private List<Integer> incomeListItrator() {   // refactor code   
+		List<Integer> list = Arrays.stream(this.income).boxed().collect(Collectors.toList());
+		return list;
+	}      
 
 	public Integer MaxSalary() {
-		List<Integer> list = Arrays.stream(this.income).boxed().collect(Collectors.toList());
+		List<Integer> list = incomeListItrator();
 		return list.stream().max(Integer::compare).get();
 	}
 
 	public Integer MinSalary() {
-		List<Integer> list = Arrays.stream(this.income).boxed().collect(Collectors.toList());
+		List<Integer> list = incomeListItrator();
 		return list.stream().min(Integer::compare).get();
 	}
 
 	public double AveSalary() {
-		List<Integer> list = Arrays.stream(this.income).boxed().collect(Collectors.toList());
+		List<Integer> list = incomeListItrator();
 		IntSummaryStatistics stats = list.stream().mapToInt((x) -> x).summaryStatistics();
 		return stats.getAverage();
 	}
@@ -78,4 +83,5 @@ public class EngineerFirm {
 	public void assignIncome(int[] salaries) {
 		System.arraycopy(salaries, 0, this.income, 0, Math.min(this.income.length, salaries.length));
 	}
+	
 }
