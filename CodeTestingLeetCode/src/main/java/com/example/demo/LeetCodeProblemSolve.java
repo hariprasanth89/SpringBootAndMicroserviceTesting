@@ -257,15 +257,15 @@ public class LeetCodeProblemSolve {
 	    
 	    public static String stringReverseWithStringBuilder(String str) {
 	    	StringBuilder sb = new StringBuilder();
-	    	String str1ValueManuallyAdding = "";
+	    	//String str1ValueManuallyAdding = "";
 	    	if(str != null && !str.isEmpty()) {
 		    	for(int i = str.length() - 1; i>=0; i--) {
 		    		sb.append(str.charAt(i));
-		    		str1ValueManuallyAdding += str.charAt(i);
-		    		int indexOf = str.indexOf("H");
-		    		System.out.println(indexOf);
+		    		//str1ValueManuallyAdding += str.charAt(i);
+		    		//int indexOf = str.indexOf("H");
+		    		//System.out.println(indexOf);
 		    		
-		    		System.out.println(str1ValueManuallyAdding);
+		    		//System.out.println(str1ValueManuallyAdding);
 		    	}
 	    	}
 	    	return sb.toString();
