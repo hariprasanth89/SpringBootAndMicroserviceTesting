@@ -64,9 +64,20 @@ public class Testing extends SwapOddAndEvenTimeComplexity {
     }
 	
 	
+	
+	public static void method(Object js) {
+		System.out.println("obj");
+		
+	
+	}
+	
+	public static void method(String st) {
+		System.out.println("Str");
+		
+	}
+	
+	
 	public static void main(String[] args) {
-		
-		
 		
 		String txt = "Please locate where 'locate' occurs!";
 	    System.out.println(txt.charAt(txt.length()-2));
